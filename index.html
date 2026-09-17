@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Лёша и Света — наша свадьба</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;600&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --beige:#f3ecdf;
+    --cream:#faf6ee;
+    --pink:#eec3cb;
+    --powder:#e6cfc7;
+    --green:#b9c6a4;
+    --blue:#c3d6dd;
+    --dark-green:#6f7a5c;
+    --text:#4a4238;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:'Cormorant Garamond', serif;
+    background: var(--beige);
+    color: var(--text);
+    display:flex;
+    justify-content:center;
+  }
+  .container{
+    max-width:480px;
+    width:100%;
+    background: var(--cream);
+    overflow:hidden;
+  }
+  section{
+    padding:40px 24px;
+    text-align:center;
+    position:relative;
+  }
+  h1,h2{
+    font-family:'Playfair Display', serif;
+  }
+  .script{
+    font-family:'Great Vibes', cursive;
+  }
+  .divider{
+    color:var(--dark-green);
+    font-size:22px;
+    margin:20px 0;
+  }
+
+  /* HERO */
+  .hero{
+    background: linear-gradient(180deg, var(--pink) 0%, var(--cream) 100%);
+    padding-top:50px;
+  }
+  .hero-phrase{
+    font-family:'Playfair Display', serif;
+    font-style:italic;
+    font-size:20px;
+    letter-spacing:1px;
+    color:var(--dark-green);
+    margin-bottom:24px;
+  }
+  .photo-frame{
+    width:220px;
+    height:220px;
+    margin:0 auto 20px;
+    border-radius:12px;
+    overflow:hidden;
+    border:4px solid #fff;
+    box-shadow:0 8px 20px rgba(0,0,0,0.12);
+    background: var(--powder);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .photo-frame.small{
+    width:160px;
+    height:160px;
+  }
+  .photo-frame img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .photo-placeholder{
+    font-size:14px;
+    color:#8a7f6e;
+    padding:10px;
+    line-height:1.4;
+  }
+  .names{
+    font-family:'Great Vibes', cursive;
+    font-size:52px;
+    color:var(--dark-green);
+    margin:10px 0;
+  }
+  .amp{
+    color:var(--pink);
+    font-size:40px;
+  }
+  .date-badge{
+    display:inline-block;
+    margin-top:10px;
+    padding:10px 26px;
+    border:1px solid var(--dark-green);
+    border-radius:30px;
+    font-family:'Playfair Display', serif;
+    font-size:18px;
+    letter-spacing:2px;
+    color:var(--dark-green);
+    background:#fff;
+  }
+
+  /* NIKUSKA */
+  .nikuska{
+    background:var(--green);
+  }
+  .nikuska p{
+    font-size:16px;
+    line-height:1.6;
+    max-width:340px;
+    margin:0 auto;
+    color:#3f4a33;
+  }
+  .nikuska h3{
+    font-family:'Playfair Display', serif;
+    margin-bottom:16px;
+    color:#3f4a33;
+  }
+
+  /* COUNTDOWN */
+  .countdown h2{
+    color:var(--dark-green);
+    margin-bottom:20px;
+    font-size:22px;
+  }
+  .timer{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+  }
+  .timer div{
+    background:#fff;
+    border-radius:10px;
+    padding:12px 10px;
+    min-width:60px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.08);
+  }
+  .timer .num{
+    font-size:24px;
+    font-weight:600;
+    color:var(--dark-green);
+    display:block;
+  }
+  .timer .label{
+    font-size:11px;
+    color:#8a7f6e;
+    text-transform:uppercase;
+  }
+
+  /* GREETING */
+  .greeting{
+    background:var(--powder);
+  }
+  .greeting h2{
+    color:#6b4a42;
+    margin-bottom:16px;
+  }
+  .greeting p{
+    font-size:16px;
+    line-height:1.7;
+  }
+
+  /* LOCATION */
+  .location h2{
+    color:var(--dark-green);
+    margin-bottom:16px;
+  }
+  .place-name{
+    font-size:19px;
+    font-weight:600;
+    margin-bottom:6px;
+  }
+  .place-address{
+    font-size:15px;
+    color:#8a7f6e;
+    margin-bottom:20px;
+  }
+  .btn{
+    display:inline-block;
+    margin-top:16px;
+    padding:12px 28px;
+    background:var(--dark-green);
+    color:#fff;
+    text-decoration:none;
+    border-radius:30px;
+    font-family:'Playfair Display', serif;
+    font-size:14px;
+    letter-spacing:1px;
+  }
+
+  /* PROGRAM */
+  .program{
+    background:var(--blue);
+  }
+  .program h2{
+    color:#3a5a63;
+    margin-bottom:14px;
+  }
+  .program-note{
+    font-size:15px;
+    line-height:1.7;
+    color:#3a5a63;
+    margin-bottom:24px;
+  }
+  .timeline-item{
+    background:#fff;
+    border-radius:10px;
+    padding:14px 18px;
+    margin-bottom:12px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .timeline-item .time{
+    font-family:'Playfair Display', serif;
+    font-weight:600;
+    color:var(--dark-green);
+  }
+  .timeline-item .event{
+    font-size:15px;
+    color:var(--text);
+  }
+
+  /* DRESSCODE */
+  .dresscode h2{
+    color:#6b4a42;
+    margin-bottom:14px;
+  }
+  .dresscode p{
+    font-size:15px;
+    line-height:1.7;
+    margin-bottom:20px;
+  }
+  .palette{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    margin-bottom:24px;
+  }
+  .color-dot{
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    border:2px solid #fff;
+    box-shadow:0 3px 8px rgba(0,0,0,0.12);
+  }
+  .dresscode-photos{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+  }
+  .dresscode-photos .photo-frame{
+    width:130px;
+    height:170px;
+    margin:0;
+  }
+
+  /* RSVP */
+  .rsvp{
+    background:var(--pink);
+  }
+  .rsvp h2{
+    color:#7a3f47;
+    margin-bottom:14px;
+  }
+  .rsvp p{
+    font-size:15px;
+    line-height:1.6;
+    margin-bottom:20px;
+    color:#5c3238;
+  }
+  #rsvp-form input[type="text"],
+  #rsvp-form input:not([type="radio"]),
+  #rsvp-form textarea{
+    width:100%;
+    padding:12px 14px;
+    border:none;
+    border-radius:8px;
+    margin-bottom:14px;
+    font-family:'Cormorant Garamond', serif;
+    font-size:15px;
+  }
+  #rsvp-form textarea{
+    resize:none;
+    min-height:80px;
+  }
+  .radio-group{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    text-align:left;
+    background:#fff;
+    padding:14px;
+    border-radius:8px;
+    margin-bottom:14px;
+    font-size:15px;
+  }
+  .note-small{
+    font-size:13px;
+    color:#5c3238;
+    background:rgba(255,255,255,0.5);
+    padding:10px;
+    border-radius:8px;
+    margin-bottom:16px;
+  }
+  #rsvp-form button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:30px;
+    background:#7a3f47;
+    color:#fff;
+    font-family:'Playfair Display', serif;
+    font-size:15px;
+    letter-spacing:1px;
+    cursor:pointer;
+  }
+  #form-success{
+    font-size:16px;
+    color:#5c3238;
+    padding:20px;
+    background:#fff;
+    border-radius:10px;
+  }
+
+  footer{
+    padding:30px;
+    text-align:center;
+    font-family:'Great Vibes', cursive;
+    font-size:26px;
+    color:var(--dark-green);
+    background:var(--cream);
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-phrase">наконец-то мы женимся</p>
+    <div class="photo-frame">
+      <img src="photos/couple.jpg" alt="Лёша и Света"
+        onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=&quot;photo-placeholder&quot;>📷<br>Сюда вставьте фото пары<br>(файл photos/couple.jpg)</div>'">
+    </div>
+    <h1 class="names">Лёша <span class="amp">&</span> Света</h1>
+    <div class="date-badge">30 . 04 . 2027</div>
+  </section>
+
+  <!-- NIKUSKA -->
+  <section class="nikuska">
+    <h3>Особенная дата</h3>
+    <div class="photo-frame small">
+      <img src="photos/nikuska.jpg" alt="Никуська"
+        onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=&quot;photo-placeholder&quot;>🐾<br>Фото Никуськи<br>(файл photos/nikuska.jpg)</div>'">
+    </div>
+    <p>30 апреля 2027 года — этот день особенный вдвойне: в этот же день нашей любимой собаке Никуське исполнится 10 лет 🐾<br><br>
+    Мы хотим отметить этот праздник все вместе — как одна семья.</p>
+  </section>
+
+  <!-- COUNTDOWN -->
+  <section class="countdown">
+    <h2>До встречи осталось</h2>
+    <div class="timer">
+      <div><span class="num" id="days">0</span><span class="label">дней</span></div>
+      <div><span class="num" id="hours">0</span><span class="label">часов</span></div>
+      <div><span class="num" id="minutes">0</span><span class="label">минут</span></div>
+      <div><span class="num" id="seconds">0</span><span class="label">секунд</span></div>
+    </div>
+  </section>
+
+  <!-- GREETING -->
+  <section class="greeting">
+    <h2 class="script" style="font-size:34px;">Дорогие друзья и родные!</h2>
+    <p>Мы очень счастливы разделить с вами радость главного дня нашей жизни.<br><br>
+    Приглашаем вас на нашу свадьбу и будем рады видеть именно вас в этот особенный для нас день!</p>
+  </section>
+
+  <!-- LOCATION -->
+  <section class="location">
+    <h2>Время и место</h2>
+    <!-- ЗАМЕНИТЬ: название и адрес -->
+    <p class="place-name">[Название ресторана — будет объявлено позже]</p>
+    <p class="place-address">[Адрес будет объявлен позже]</p>
+    <div class="photo-frame">
+      <img src="photos/place.jpg" alt="Место проведения"
+        onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=&quot;photo-placeholder&quot;>📍<br>Фото места проведения<br>(файл photos/place.jpg)</div>'">
+    </div>
+    <!-- ЗАМЕНИТЬ: ссылку на карту -->
+    <a href="#" class="btn">Посмотреть на карте</a>
+  </section>
+
+  <!-- PROGRAM -->
+  <section class="program">
+    <h2>Программа дня</h2>
+    <p class="program-note">Это будет камерный формат: рядом с нами будут только самые близкие люди. Без ведущих и конкурсов — просто теплый вечер, вкусный ужин и душевные разговоры.</p>
+    <div class="timeline-item">
+      <!-- ЗАМЕНИТЬ: время -->
+      <span class="time">[время]</span>
+      <span class="event">Приезд в ресторан</span>
+    </div>
+    <!-- Добавляйте новые пункты программы, копируя блок .timeline-item выше -->
+  </section>
+
+  <!-- DRESSCODE -->
+  <section class="dresscode">
+    <h2 class="script" style="font-size:36px;">Дресс-код</h2>
+    <p>Нам будет очень приятно, если вы поддержите нежную атмосферу нашего праздника и отдадите предпочтение светлым, спокойным оттенкам:</p>
+    <div class="palette">
+      <div class="color-dot" style="background:#e8ddc9;" title="Бежевый"></div>
+      <div class="color-dot" style="background:#e3c9c7;" title="Пудровый"></div>
+      <div class="color-dot" style="background:#f0c9d4;" title="Нежно-розовый"></div>
+      <div class="color-dot" style="background:#c8d8bd;" title="Светло-зелёный"></div>
+      <div class="color-dot" style="background:#c7dbe6;" title="Светло-голубой"></div>
+    </div>
+    <div class="dresscode-photos">
+      <div class="photo-frame">
+        <img src="photos/dresscode1.jpg" alt="Пример образа"
+          onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=&quot;photo-placeholder&quot;>👗<br>Пример образа</div>'">
+      </div>
+      <div class="photo-frame">
+        <img src="photos/dresscode2.jpg" alt="Пример образа"
+          onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=&quot;photo-placeholder&quot;>👔<br>Пример образа</div>'">
+      </div>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section class="rsvp">
+    <h2>Анкета гостя</h2>
+    <p>Пожалуйста, подтвердите свое присутствие — это очень важно для нас при подготовке праздника! Если по каким-то причинам вы не сможете приехать, обязательно предупредите нас заранее 🙏</p>
+    <form id="rsvp-form">
+      <input type="text" name="name" placeholder="Ваше имя и фамилия" required>
+      <div class="radio-group">
+        <label><input type="radio" name="attend" value="Да, буду!" required> Да, буду!</label>
+        <label><input type="radio" name="attend" value="Не смогу приехать"> Не смогу приехать 😢</label>
+      </div>
+      <textarea name="wishes" placeholder="Пожелания молодоженам (по желанию)"></textarea>
+      <div class="note-small">P.S. Единственная просьба — обойдёмся без криков «Горько!» 😅 Пусть это будет просто тёплый и уютный вечер.</div>
+      <button type="submit">Отправить</button>
+    </form>
+    <div id="form-success" style="display:none;">Спасибо! Ваш ответ получен 💛</div>
+  </section>
+
+  <footer class="script">До встречи, любимые!</footer>
+</div>
+
+<script>
+  // Countdown to wedding date
+  const weddingDate = new Date("2027-04-30T16:00:00").getTime();
+  function updateCountdown(){
+    const now = new Date().getTime();
+    const diff = weddingDate - now;
+    if(diff < 0){ return; }
+    const days = Math.floor(diff/(1000*60*60*24));
+    const hours = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+    const minutes = Math.floor((diff%(1000*60*60))/(1000*60));
+    const seconds = Math.floor((diff%(1000*60))/1000);
+    document.getElementById("days").textContent = days;
+    document.getElementById("hours").textContent = hours;
+    document.getElementById("minutes").textContent = minutes;
+    document.getElementById("seconds").textContent = seconds;
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // RSVP form submit
+  // ЗАМЕНИТЬ: если подключите Formspree, добавьте action="https://formspree.io/f/ВАШ_КОД" в тег <form> выше
+  document.getElementById("rsvp-form").addEventListener("submit", function(e){
+    e.preventDefault();
+    // Здесь можно подключить реальную отправку (см. инструкцию ниже)
+    document.getElementById("rsvp-form").style.display = "none";
+    document.getElementById("form-success").style.display = "block";
+  });
+</script>
+</body>
+</html>
